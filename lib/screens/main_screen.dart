@@ -1,6 +1,5 @@
 import 'package:cloned_netflix/constant/colors.dart';
 import 'package:cloned_netflix/screens/download/downloads_screen.dart';
-import 'package:cloned_netflix/screens/fastlaugh/fast_laugh_screen.dart';
 import 'package:cloned_netflix/screens/home/home_screen.dart';
 import 'package:cloned_netflix/screens/newnhot/new_&_hot_screen.dart';
 import 'package:cloned_netflix/screens/search/search_screen.dart';
@@ -13,7 +12,6 @@ class MainScreen extends StatelessWidget {
   final pages = [
     const Home(),
     const NewnHot(),
-    const FastLaugh(),
     const Search(),
     const Downloads(),
   ];
