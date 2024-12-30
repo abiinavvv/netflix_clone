@@ -13,8 +13,8 @@ class Api {
   static const topRated = '${baseUrl}tv/top_rated$key';
   static const popular = '${baseUrl}tv/popular$key';
 
-  static const fastLaugh =
-      'http://run.mocky.io/v3/181f6fbf-c073-4245-9f04-5e0e7d15641f';
+  static const reelFlix =
+      'https://run.mocky.io/v3/fa1ddde5-82ed-4e7a-9315-27f9cc711895';
 
   Future<List<Movie>> getTrendingMovies() async {
     final response = await http.get(Uri.parse(trending));
@@ -68,8 +68,8 @@ class Api {
     }
   }
 
-  Future<List<String>> getFastLaught() async {
-    final response = await http.get(Uri.parse(fastLaugh));
+  Future<List<String>> getReelFlix() async {
+    final response = await http.get(Uri.parse(reelFlix));
     log(response.body);
     if (response.statusCode == 200) {
       final decodedData = json.decode(response.body)['videos'] as List;
@@ -103,7 +103,7 @@ class Api {
     
     if (response.statusCode == 200) {
       final decodeDate =MovieDetailModel.fromJson(jsonDecode(response.body));MovieDetailModel.fromJson(jsonDecode(response.body));
-      print(decodeDate.toString());
+      log(decodeDate.toString());
 
       return decodeDate;
           
@@ -124,9 +124,3 @@ class Api {
     }
   }
 }
-
-
-
-// movie/$movieId
-
-// movie/$movieId/recommendations

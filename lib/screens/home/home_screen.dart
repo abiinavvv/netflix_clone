@@ -52,11 +52,7 @@ class _HomeState extends State<Home> {
           ),
           ClipRRect(
             borderRadius: BorderRadius.circular(6),
-            child: Container(
-              color: Colors.blue,
-              height: 27,
-              width: 27,
-            ),
+            child: IconButton(onPressed: (){}, icon: const Icon(Icons.cast, color: Colors.white),),
           ),
           //sbw20
         ],

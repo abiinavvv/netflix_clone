@@ -34,20 +34,23 @@ class _MovieDetailState extends State<MovieDetail> {
             future: details,
             builder: (context, snapshot) {
               if (snapshot.connectionState == ConnectionState.waiting) {
-                return const Center(
-                  child: CircularProgressIndicator(
-                    color: Colors.white,
+                return SizedBox(
+                  height: MediaQuery.of(context).size.height,
+                  width: MediaQuery.of(context).size.width,
+                  child: const Center(
+                    child: CircularProgressIndicator(
+                      color: Colors.white,
+                    ),
                   ),
                 );
-              } else if (!snapshot.hasData ||
-                  snapshot.data == null ) {
-                // log(snapshot.data.toString());
-
-                return const Text('No Details');
+              } else if (!snapshot.hasData || snapshot.data == null) {
+                return const Center(
+                  child:
+                      Text('No Details', style: TextStyle(color: Colors.white)),
+                );
               }
-              String genre = snapshot.data!.genres
-                  .map((genre) => genre.name)
-                  .join(',');
+              String genre =
+                  snapshot.data!.genres.map((genre) => genre.name).join(',');
               return Column(
                 children: [
                   DetailImage(

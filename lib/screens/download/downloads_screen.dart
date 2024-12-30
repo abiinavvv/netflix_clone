@@ -34,23 +34,23 @@ class _DownloadsState extends State<Downloads> {
           'Downloads',
           style: TextStyle(color: Colors.white),
         ),
-        actions: [
-          const Icon(
+        actions: const [
+          Icon(
             Icons.cast,
             color: Colors.white,
           ),
-          const SizedBox(
+          SizedBox(
             width: 20,
           ),
-          ClipRRect(
-            borderRadius: BorderRadius.circular(6),
-            child: Container(
-              color: Colors.blue,
-              height: 27,
-              width: 27,
-            ),
-          ),
-          const SizedBox(
+          // ClipRRect(
+          //   borderRadius: BorderRadius.circular(6),
+          //   child: Container(
+          //     color: Colors.blue,
+          //     height: 27,
+          //     width: 27,
+          //   ),
+          // ),
+          SizedBox(
             width: 20,
           )
         ],
