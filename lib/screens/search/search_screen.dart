@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:developer';
 
 import 'package:cloned_netflix/api/api.dart';
@@ -20,12 +21,21 @@ class _SearchState extends State<Search> {
   late Future<List<Movie>> search;
   late Future<List<Movie>> topSearch;
   List<Movie>? movie;
+  Timer? _debounce;
 
   void searching(String query) {
-    Api().getSearch(query).then((value) {
-      setState(() {
-        log(value.toString());
-        movie = value;
+    // Cancel the previous timer if it is still active
+    if (_debounce?.isActive ?? false) _debounce!.cancel();
+
+    // Start a new debounce timer
+    _debounce = Timer(const Duration(milliseconds: 1000), () {
+      Api().getSearch(query).then((value) {
+        setState(() {
+          log(value.toString());
+          movie = value;
+        });
+      }).catchError((error) {
+        log('Error during search: $error');
       });
     });
   }
